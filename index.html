@@ -3,59 +3,85 @@
     <html lang="zh">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>概览 | Energy Intel Pro</title>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
         <style>
-            :root { --primary: #2c3e50; --accent: #3498db; --success: #27ae60; --warning: #f39c12; --danger: #e74c3c; }
-            body { background: #f8f9fa; font-family: 'Segoe UI', system-ui; }
-            .navbar { background: var(--primary); box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-            .navbar-brand { font-weight: 800; color: #fff !important; }
-            .nav-link { color: #bdc3c7 !important; margin: 0 10px; }
-            .nav-link.active { color: #1abc9c !important; border-bottom: 2px solid #1abc9c; }
+            :root { --primary-dark: #1a252f; --accent-blue: #3498db; --glass-bg: rgba(255, 255, 255, 0.9); }
+            body { background: #f0f2f5; font-family: 'Inter', -apple-system, sans-serif; color: #2c3e50; line-height: 1.6; }
             
-            /* 用户喜爱的理论卡片风格 */
+            .navbar { background: var(--primary-dark); padding: 1.2rem 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+            .navbar-brand { font-weight: 800; font-size: 1.5rem; color: #fff !important; letter-spacing: -0.5px; }
+            .nav-link { color: #aab7c4 !important; font-size: 0.95rem; margin: 0 12px; transition: 0.3s; }
+            .nav-link:hover, .nav-link.active { color: #1abc9c !important; }
+            
+            /* 专业理论卡片 */
             .theory-box { 
-                background: white; padding: 35px; border-radius: 15px; 
-                box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-bottom: 30px; 
-                border-left: 8px solid var(--accent); 
+                background: white; padding: 40px; border-radius: 20px; 
+                box-shadow: 0 15px 35px rgba(0,0,0,0.05); margin-bottom: 35px; 
+                border-left: 10px solid var(--accent-blue); 
             }
-            .theory-box h2 { font-weight: 800; color: var(--primary); margin-bottom: 20px; }
+            .theory-box h2 { font-weight: 800; color: var(--primary-dark); margin-bottom: 25px; border-bottom: 1px solid #eee; padding-bottom: 15px; }
+            .theory-box h4 { font-weight: 700; margin-top: 25px; color: #34495e; }
+            .theory-box p { font-size: 1.05rem; text-align: justify; }
             
-            /* 四大象限卡片设计 */
-            .q-card { background: #fff; padding: 20px; border-radius: 10px; border: 1px solid #eee; transition: 0.3s; height: 100%; }
-            .q-card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
-            .q-title { font-weight: bold; font-size: 1.1rem; margin-bottom: 10px; display: block; }
+            .q-card { background: #fff; padding: 25px; border-radius: 12px; border: 1px solid #eef2f6; transition: 0.4s; height: 100%; }
+            .q-card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0,0,0,0.08); }
             
-            .chart-frame { background: white; padding: 20px; border-radius: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+            .chart-frame { background: white; padding: 25px; border-radius: 20px; box-shadow: 0 10px 40px rgba(0,0,0,0.04); }
+            .badge-custom { background: #ebf5ff; color: #007bff; padding: 5px 12px; border-radius: 6px; font-weight: 600; font-size: 0.85rem; }
             [lang-en] { display: none; }
         </style>
     </head>
     <body class="lang-zh-active">
         <nav class="navbar navbar-expand-lg sticky-top">
-            <div class="container-fluid px-5">
-                <a class="navbar-brand">ENERGY INTEL PRO</a>
+            <div class="container-fluid">
+                <a class="navbar-brand">ENERGY INTEL PRO <small style="font-size:0.6rem; opacity:0.7;">Analytics Suite</small></a>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav ms-auto align-items-center">
-                        <li class="nav-item"><a class="nav-link active fw-bold" href="index.html" data-zh="概览" data-en="Overview">概览</a></li>
-                        <li class="nav-item"><a class="nav-link " href="trends.html" data-zh="趋势" data-en="Trends">趋势</a></li>
-                        <li class="nav-item"><a class="nav-link " href="analysis.html" data-zh="矩阵" data-en="Matrix">矩阵</a></li>
-                        <li class="nav-item"><a class="nav-link " href="market_share.html" data-zh="市场" data-en="Market">市场</a></li>
-                        <li class="nav-item"><a class="nav-link " href="efficiency.html" data-zh="效率" data-en="Efficiency">效率</a></li>
-                        <li class="nav-item ms-3"><button class="btn btn-outline-info btn-sm" onclick="toggleLang()">中 / EN</button></li>
+                        <li class="nav-item"><a class="nav-link active fw-bold" href="index.html" data-zh="决策概览" data-en="Overview">决策概览</a></li>
+                        <li class="nav-item"><a class="nav-link " href="trends.html" data-zh="盈利轨迹" data-en="Trends">盈利轨迹</a></li>
+                        <li class="nav-item"><a class="nav-link " href="analysis.html" data-zh="杜邦矩阵" data-en="Matrix">杜邦矩阵</a></li>
+                        <li class="nav-item"><a class="nav-link " href="market_share.html" data-zh="竞争格局" data-en="Market">竞争格局</a></li>
+                        <li class="nav-item"><a class="nav-link " href="efficiency.html" data-zh="营运效率" data-en="Efficiency">营运效率</a></li>
+                        <li class="nav-item ms-4"><button class="btn btn-sm btn-outline-light" onclick="toggleLang()" style="border-radius: 20px; padding: 5px 15px;">ZH / EN</button></li>
                     </ul>
                 </div>
             </div>
         </nav>
-        <div class="container mt-5"><div class="theory-box">
-        <h2 data-zh="能源财务分析引擎" data-en="Financial Intelligence Engine">能源财务分析引擎</h2>
-        <div lang-zh><p>本系统采用杜邦分析法作为核心架构，将复杂的营收数据拆解为利润维度与效率维度。旨在帮助机构投资者识别全球能源市场的阿尔法机会。</p></div>
-        <div lang-en><p>Institutional-grade engine based on DuPont Analysis, decomposing revenue into profit and efficiency dimensions.</p></div>
-    </div></div>
+        <div class="container mt-5 mb-5">
+    <div class="theory-box">
+        <h2 data-zh="能源行业战略决策支持系统 (ESD-SS)" data-en="Energy Strategy Decision Support System">能源行业战略决策支持系统 (ESD-SS)</h2>
+        <div lang-zh>
+            <h4>🎯 目标用户 (Target Audience)</h4>
+            <p>本系统专为<strong>能源行业高级分析师、机构投资者及企业战略规划部门</strong>设计。通过对财务数据的可视化建模，为资本配置与竞争对手对标提供量化依据。</p>
+            
+            <h4>📊 数据来源 (Data Source)</h4>
+            <p>基础数据源自 <strong>WRDS (Wharton Research Data Services) COMPUSTAT</strong> 数据库，涵盖了 2018-2025 年全球主要上市能源企业的年度财务指标。所有数据经过标准化去噪与异常值过滤，确保分析结果的统计有效性。</p>
+            
+            <h4>💡 网页功能简介 (Functionalities)</h4>
+            <ul>
+                <li><strong>盈利轨迹 (Trends)：</strong> 纵向观察头部企业利润率的周期性波动，识别穿越周期的抗压标的。</li>
+                <li><strong>杜邦矩阵 (Matrix)：</strong> 基于杜邦分解逻辑，解构 ROA 回报率的驱动因子（利润vs效率）。</li>
+                <li><strong>竞争格局 (Market)：</strong> 通过矩形树图可视化营收规模分布，并支持点击穿透查看企业档案。</li>
+                <li><strong>营运效率 (Efficiency)：</strong> 统计行业资产周转率的分布离散度，定位企业在行业中的效率水位。</li>
+            </ul>
+        </div>
+        <div lang-en>
+            <h4>🎯 Target Audience</h4>
+            <p>Designed for energy analysts, institutional investors, and strategic planners.</p>
+            <h4>📊 Data Source</h4>
+            <p>Powered by WRDS COMPUSTAT (2018-2025) energy sector financials.</p>
+        </div>
+    </div>
+    </div>
         <script>
             function toggleLang() {
                 const isZh = document.body.classList.contains('lang-zh-active');
                 document.body.classList.toggle('lang-zh-active', !isZh);
-                document.querySelectorAll('[data-zh]').forEach(el => el.innerText = el.getAttribute(isZh ? 'data-en' : 'data-zh'));
+                document.querySelectorAll('[data-zh]').forEach(el => {
+                    el.innerText = el.getAttribute(isZh ? 'data-en' : 'data-zh');
+                });
                 document.querySelectorAll('[lang-zh]').forEach(el => el.style.display = isZh ? 'none' : 'block');
                 document.querySelectorAll('[lang-en]').forEach(el => el.style.display = isZh ? 'block' : 'none');
             }
